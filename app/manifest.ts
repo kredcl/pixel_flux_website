@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
                 type: "image/x-icon",
             },
             {
-                src: "/logo_pxf_n2.png",
+                src: "/assets/images/logo_pxf_n2.png",
                 sizes: "192x192 512x512",
                 type: "image/png",
             },

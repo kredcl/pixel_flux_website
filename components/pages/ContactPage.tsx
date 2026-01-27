@@ -5,9 +5,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
-export default function Contact() {
+export default function ContactPage({ dict }: { dict: any }) {
     const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+    const params = useParams();
+    const lang = params.lang as string;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,22 +39,22 @@ export default function Contact() {
             }
         } catch (error) {
             console.error(error);
-            setStatus("idle"); // Reset on error to allow retry, ideally show error message
-            alert("Hubo un error al enviar el mensaje. Por favor intenta nuevamente.");
+            setStatus("idle");
+            alert(dict.contact.form.error || "Error al enviar el mensaje.");
         }
     };
 
     return (
         <main className="min-h-screen bg-black text-white">
-            <Navbar />
+            <Navbar dict={dict} />
             <PageTransition>
                 <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto">
                     <section className="mb-20 text-center">
                         <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
-                            <span className="text-spring-green">Contáctanos</span>
+                            <span className="text-spring-green">{dict.contact.title}</span>
                         </h1>
                         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                            ¿Listo para comenzar tu proyecto? Envíanos un mensaje y te responderemos en 24 horas.
+                            {dict.contact.subtitle}
                         </p>
                     </section>
 
@@ -59,7 +62,7 @@ export default function Contact() {
                         {/* Contact Info */}
                         <div className="space-y-8">
                             <div className="bg-zinc-900/50 p-8 rounded-2xl border border-white/10">
-                                <h3 className="text-2xl font-bold mb-6">Información de Contacto</h3>
+                                <h3 className="text-2xl font-bold mb-6">{dict.nav.contact}</h3>
                                 <div className="space-y-6">
                                     <div className="flex items-center gap-4">
                                         <Mail className="text-spring-green" />
@@ -83,7 +86,7 @@ export default function Contact() {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-sm text-gray-400">Nombre</label>
+                                    <label className="text-sm text-gray-400">{dict.contact.form.name}</label>
                                     <input
                                         name="name"
                                         type="text"
@@ -92,7 +95,7 @@ export default function Contact() {
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm text-gray-400">Email</label>
+                                    <label className="text-sm text-gray-400">{dict.contact.form.email}</label>
                                     <input
                                         name="email"
                                         type="email"
@@ -102,7 +105,7 @@ export default function Contact() {
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm text-gray-400">Mensaje</label>
+                                <label className="text-sm text-gray-400">{dict.contact.form.message}</label>
                                 <textarea
                                     name="message"
                                     rows={6}
@@ -115,12 +118,12 @@ export default function Contact() {
                                 disabled={status !== "idle"}
                                 className="w-full bg-spring-green text-black font-bold py-4 rounded-lg hover:bg-emerald-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {status === "idle" ? "Enviar Mensaje" : status === "submitting" ? "Enviando..." : "¡Mensaje Enviado!"}
+                                {status === "idle" ? dict.contact.form.submit : status === "submitting" ? dict.contact.form.sending : dict.contact.form.success}
                             </button>
                         </form>
                     </div>
                 </div>
-                <Footer />
+                <Footer dict={dict} />
             </PageTransition>
         </main>
     );

@@ -1,0 +1,337 @@
+{
+    "common": {
+        "pixel_flux": "PIXEL FLUX",
+        "contact_us": "Contact Us",
+        "read_more": "Read More",
+        "start_project": "Start Project",
+        "learn_more": "Learn More",
+        "view_plans": "View Subscription Plans",
+        "live_demo": "Live Demo",
+        "know_plans": "Explore Plans",
+        "know_smart_dining": "Explore Smart Dining Systems"
+    },
+    "nav": {
+        "home": "Home",
+        "development": "Development",
+        "automation": "Automation",
+        "contact": "Contact"
+    },
+    "footer": {
+        "tagline": "Forging the future of digital experiences.",
+        "rights": "Pixel Flux Creative."
+    },
+    "home": {
+        "hero": {
+            "title_start": "BUILDING THE",
+            "title_end": "DIGITAL FUTURE",
+            "subtitle": "High-performance web solutions and intelligent automation for ambitious enterprises.",
+            "cta_work": "Our Work"
+        },
+        "services": {
+            "title_start": "Next-Generation",
+            "title_end": "Solutions",
+            "subtitle": "We combine cutting-edge design with bespoke AI architecture.",
+            "web_dev": {
+                "title": "Web Development",
+                "desc": "Next.js applications optimized for speed and SEO."
+            },
+            "ai_auto": {
+                "title": "AI Automation",
+                "desc": "Custom scrapers and CRM solutions to scale operations."
+            },
+            "performance": {
+                "title": "Performance",
+                "desc": "Optimized for 100% Core Web Vitals scores."
+            }
+        },
+        "flux_process": {
+            "title_start": "The",
+            "title_end": "Flux Process",
+            "subtitle": "Our proven methodology for exceptional results.",
+            "steps": {
+                "01": {
+                    "title": "Discovery",
+                    "desc": "Needs analysis and data architecture."
+                },
+                "02": {
+                    "title": "Agent Development",
+                    "desc": "AI training and bespoke logic creation."
+                },
+                "03": {
+                    "title": "Flux Deployment",
+                    "desc": "Implementation on high-performance Cloud infrastructure."
+                },
+                "04": {
+                    "title": "Optimization",
+                    "desc": "Constant monitoring and conversion rate improvement."
+                }
+            }
+        },
+        "xray": {
+            "badge": "Total Transparency",
+            "title_start": "Transparent",
+            "title_end": "Engineering",
+            "desc": "We don’t hide complexity; we expose it. Every line of code, every component is designed to be audited, scaled, and maintained without hidden dependencies.",
+            "list": [
+                "100% Documented Architecture",
+                "Clean & Maintainable Code",
+                "No Vendor Lock-in"
+            ]
+        },
+        "mipe": {
+            "badge": "Featured Product",
+            "title_start": "MiPE Digital Ecosystem:",
+            "title_end": "The Leap Your Business Needs",
+            "desc_start": "We democratize elite technology for micro and small business owners. Through our monthly subscription model, you get a high-speed micro-site, optimized for conversions and designed for entrepreneurs to compete with the giants. Join the network of ",
+            "link_text": "restaurantes-chile.com",
+            "desc_end": " and get a professional digital presence without unreachable development costs.",
+            "stats": {
+                "restaurants": "Restaurants",
+                "visits": "Visits/day",
+                "conversion": "Conversion"
+            },
+            "platform": "Centralized Platform"
+        },
+        "tech_stack": {
+            "label": "Technologies We Master"
+        },
+        "cta_final": {
+            "title_start": "Ready to",
+            "title_end": "transform",
+            "title_suffix": "your business?",
+            "subtitle": "Let's talk about how we can boost your digital presence."
+        }
+    },
+    "automation": {
+        "hero": {
+            "badge": "Autonomous AI Agents",
+            "title_start": "AI Orchestration:",
+            "title_end": "Turn Your Operation into an Autonomous Engine",
+            "subtitle": "We design AI agents and workflows that eliminate manual work, qualify opportunities in real-time, and multiply your team's capacity without increasing headcount.",
+            "cta_automate": "Automate My Business",
+            "cta_cases": "View Success Stories"
+        },
+        "bridge": {
+            "text": "From manual chaos to algorithmic precision"
+        },
+        "operational_intelligence": {
+            "title_start": "End-to-End",
+            "title_end": "Operational Intelligence",
+            "subtitle": "A complete workflow that transforms data into results.",
+            "cards": {
+                "extraction": {
+                    "title": "Extraction Intelligence",
+                    "desc": "We develop custom scrapers that monitor competitors and extract leads with surgical precision."
+                },
+                "qualification": {
+                    "title": "Qualification with LLMs",
+                    "desc": "Gemini/GPT-4 models that analyze purchase intent and filter leads by budget and urgency."
+                },
+                "documentation": {
+                    "title": "Documentation Automation",
+                    "desc": "Automatic generation of proposals and contracts via API, integrated directly with your CRM."
+                }
+            }
+        },
+        "terminal": {
+            "badge": "Live Demo",
+            "title_start": "Processing",
+            "title_end": "Terminal",
+            "subtitle": "Watch our agents work in real-time.",
+            "lines": [
+                "> Initializing Lead Scraper... DONE",
+                "> Analyzing 500+ Leads with LLM Agent... DONE",
+                "> Generating PDF Proposals via API... DONE",
+                "> Efficiency increased by 1000%"
+            ]
+        },
+        "efficiency": {
+            "title_start": "Efficiency",
+            "title_end": "Multiplier",
+            "subtitle": "Measurable results that transform operations.",
+            "stats": {
+                "efficiency": {
+                    "label": "Efficiency Increase",
+                    "desc": "We replace 16 manual hours with 45-second processes."
+                },
+                "error": {
+                    "label": "Human Error",
+                    "desc": "Total data integrity and consistency 24/7."
+                },
+                "capacity": {
+                    "label": "Prospecting Capacity",
+                    "desc": "Scale your reach without hiring additional staff."
+                },
+                "roi": {
+                    "special": "Immediate ROI",
+                    "label": "Guaranteed Return",
+                    "desc": "Systems that pay for themselves in less than 60 days."
+                }
+            }
+        },
+        "flux_engine": {
+            "title_start": "The",
+            "title_end": "Flux Engine",
+            "subtitle": "Our methodology to automate your business.",
+            "steps": {
+                "01": {
+                    "title": "Process Audit",
+                    "desc": "We map every workflow to identify bottlenecks and automation opportunities."
+                },
+                "02": {
+                    "title": "Agent Architecture",
+                    "desc": "We design specialized AI agents that work 24/7 without supervision."
+                },
+                "03": {
+                    "title": "Ecosystem Integration",
+                    "desc": "We connect APIs, databases, and existing tools into a unified flow."
+                },
+                "04": {
+                    "title": "Continuous Optimization",
+                    "desc": "We constantly monitor, adjust, and improve your automations."
+                }
+            }
+        },
+        "mipe": {
+            "badge": "MiPE Solutions",
+            "title_start": "Elite Power for",
+            "title_end": "Small Business Owners",
+            "desc": "We offer scalable subscription solutions, bringing Fortune 500 technology within reach of your venture. No prohibitive costs, no obsolescence, no complications."
+        }
+    },
+    "development": {
+        "hero": {
+            "title_start": "Web & App",
+            "title_end": "Development",
+            "subtitle": "We create perfect websites and robust applications using the latest technologies."
+        },
+        "services": {
+            "web": {
+                "title": "Web Development",
+                "list": [
+                    "Next.js & React",
+                    "Tailwind CSS & Framer Motion",
+                    "SEO Optimization",
+                    "CMS Integration"
+                ]
+            },
+            "apps": {
+                "title": "App Development",
+                "list": [
+                    "React Native / Expo",
+                    "Cross-Platform Support",
+                    "Native Performance",
+                    "App Store Deployment"
+                ]
+            }
+        },
+        "bridge": {
+            "text": "Technology is the engine. Data is the proof."
+        },
+        "performance": {
+            "title_start": "High-Performance",
+            "title_end": "Engineering",
+            "subtitle": "Metrics that demonstrate our technical excellence.",
+            "stats": {
+                "web_vitals": {
+                    "label": "Google Core Web Vitals Score",
+                    "desc": "Pure speed that Google loves."
+                },
+                "load_time": {
+                    "label": "Average Load Time",
+                    "desc": "Zero friction, maximum retention."
+                },
+                "code_quality": {
+                    "label": "Scalable & Native Code",
+                    "desc": "No heavy templates or obsolete dependencies."
+                },
+                "seo": {
+                    "special": "SEO-First",
+                    "label": "Optimized Architecture",
+                    "desc": "Designed for your business to be found first."
+                }
+            }
+        },
+        "architecture": {
+            "title_start": "Superior",
+            "title_end": "Architecture",
+            "subtitle": "Comparison vs. Conventional Webs",
+            "table": {
+                "aspect": "Aspect",
+                "conventional": "WordPress / Templates",
+                "pixel_flux": "Pixel Flux Architecture",
+                "rows": {
+                    "tech": {
+                        "aspect": "Technology",
+                        "conventional": "WordPress/Templates",
+                        "pixel_flux": "Next.js & React (High-End)"
+                    },
+                    "speed": {
+                        "aspect": "Speed",
+                        "conventional": "Slow due to plugins",
+                        "pixel_flux": "Instant Load (Serverless)"
+                    },
+                    "security": {
+                        "aspect": "Security",
+                        "conventional": "Vulnerable",
+                        "pixel_flux": "Armored Architecture"
+                    },
+                    "scalability": {
+                        "aspect": "Scalability",
+                        "conventional": "Very limited",
+                        "pixel_flux": "Future-Proof"
+                    }
+                }
+            }
+        },
+        "deep_dive": {
+            "title_start": "Web Development &",
+            "title_end": "App Ecosystems",
+            "highlight": "We build more than interfaces; we create digital assets.",
+            "desc": "At Pixel Flux Creative, web development is not an isolated process. We create progressive web applications (PWA) that feel like native apps and robust mobile applications that scale with your vision. We harness the power of Next.js to ensure your site is an unstoppable marketing tool."
+        },
+        "flux_blueprint": {
+            "title_start": "The",
+            "title_end": "Flux Blueprint",
+            "subtitle": "Our proven process for exceptional results.",
+            "steps": {
+                "01": {
+                    "title": "Audit & Strategy",
+                    "desc": "We understand your business model before touching the code."
+                },
+                "02": {
+                    "title": "High-Fidelity Prototyping",
+                    "desc": "We validate user experience (UX) with interactive designs."
+                },
+                "03": {
+                    "title": "Vibe Coding & Development",
+                    "desc": "AI-assisted agile programming for 100% technical precision."
+                },
+                "04": {
+                    "title": "Cloud Start-up Deployment",
+                    "desc": "Optimized launch on our Hostinger infrastructure."
+                }
+            }
+        },
+        "mipe_solutions": {
+            "title_start": "Systems",
+            "title_end": "Ready for Market",
+            "desc": "We understand the challenges of micro and small businesses. That's why we have developed specific solutions like our ",
+            "highlight": "Smart Dining Systems",
+            "desc_end": ", allowing gastronomic businesses to access cutting-edge technology via subscription."
+        }
+    },
+    "contact": {
+        "title": "Digital DNA:",
+        "subtitle": "The Engine of Your Business",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully.",
+            "error": "Error sending message."
+        }
+    }
+}

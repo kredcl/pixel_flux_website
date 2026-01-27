@@ -1,0 +1,337 @@
+{
+    "common": {
+        "pixel_flux": "PIXEL FLUX",
+        "contact_us": "Contáctanos",
+        "read_more": "Saber más",
+        "start_project": "Iniciar Proyecto",
+        "learn_more": "Saber más",
+        "view_plans": "Ver Planes de Suscripción",
+        "live_demo": "Live Demo",
+        "know_plans": "Conocer Planes",
+        "know_smart_dining": "Conocer Smart Dining Systems"
+    },
+    "nav": {
+        "home": "Inicio",
+        "development": "Desarrollo",
+        "automation": "Automatización",
+        "contact": "Contacto"
+    },
+    "footer": {
+        "tagline": "Forjando el futuro de las experiencias digitales.",
+        "rights": "Pixel Flux Creative."
+    },
+    "home": {
+        "hero": {
+            "title_start": "CONSTRUYENDO EL",
+            "title_end": "FUTURO DIGITAL",
+            "subtitle": "Soluciones web de alto rendimiento y automatización inteligente para empresas ambiciosas.",
+            "cta_work": "Nuestro Trabajo"
+        },
+        "services": {
+            "title_start": "Soluciones de",
+            "title_end": "Nueva Generación",
+            "subtitle": "Combinamos diseño de vanguardia con arquitectura de IA a medida.",
+            "web_dev": {
+                "title": "Desarrollo Web",
+                "desc": "Aplicaciones Next.js optimizadas para velocidad y SEO."
+            },
+            "ai_auto": {
+                "title": "Automatización IA",
+                "desc": "Scrapers personalizados y soluciones CRM para escalar operaciones."
+            },
+            "performance": {
+                "title": "Rendimiento",
+                "desc": "Optimizado para puntuaciones del 100% en Core Web Vitals."
+            }
+        },
+        "flux_process": {
+            "title_start": "The",
+            "title_end": "Flux Process",
+            "subtitle": "Nuestra metodología probada para resultados excepcionales.",
+            "steps": {
+                "01": {
+                    "title": "Descubrimiento",
+                    "desc": "Análisis de necesidades y arquitectura de datos."
+                },
+                "02": {
+                    "title": "Desarrollo Agente",
+                    "desc": "Entrenamiento de IAs y creación de lógica a medida."
+                },
+                "03": {
+                    "title": "Despliegue Flux",
+                    "desc": "Implementación en infraestructura Cloud de alto rendimiento."
+                },
+                "04": {
+                    "title": "Optimización",
+                    "desc": "Monitoreo constante y mejora de tasas de conversión."
+                }
+            }
+        },
+        "xray": {
+            "badge": "Transparencia Total",
+            "title_start": "Ingeniería",
+            "title_end": "Transparente",
+            "desc": "No ocultamos la complejidad, la exponemos. Cada línea de código, cada componente está diseñado para ser auditado, escalado y mantenido sin dependencias ocultas.",
+            "list": [
+                "Arquitectura 100% documentada",
+                "Código limpio y mantenible",
+                "Sin vendor lock-in"
+            ]
+        },
+        "mipe": {
+            "badge": "Producto Destacado",
+            "title_start": "Ecosistema Digital MiPE:",
+            "title_end": "El Salto que tu Negocio Necesita",
+            "desc_start": "Democratizamos la tecnología de élite para micro y pequeños empresarios. A través de nuestro modelo de suscripción mensual, obtienes un micro-sitio de alta velocidad, optimizado para conversiones y diseñado para que los emprendedores compitan con los grandes. Únete a la red de ",
+            "link_text": "restaurantes-chile.com",
+            "desc_end": " y obtén una presencia digital profesional sin costos de desarrollo inalcanzables.",
+            "stats": {
+                "restaurants": "Restaurantes",
+                "visits": "Visitas/día",
+                "conversion": "Conversión"
+            },
+            "platform": "Plataforma Centralizada"
+        },
+        "tech_stack": {
+            "label": "Tecnologías que dominamos"
+        },
+        "cta_final": {
+            "title_start": "¿Listo para",
+            "title_end": "transformar",
+            "title_suffix": "tu negocio?",
+            "subtitle": "Hablemos sobre cómo podemos impulsar tu presencia digital."
+        }
+    },
+    "automation": {
+        "hero": {
+            "badge": "Agentes de IA Autónomos",
+            "title_start": "Orquestación de IA:",
+            "title_end": "Convierte tu Operación en un Motor Autónomo",
+            "subtitle": "Diseñamos agentes de IA y flujos de trabajo que eliminan el trabajo manual, califican oportunidades en tiempo real y multiplican la capacidad de tu equipo sin aumentar tu plantilla.",
+            "cta_automate": "Automatizar mi Negocio",
+            "cta_cases": "Ver Casos de Éxito"
+        },
+        "bridge": {
+            "text": "Del caos manual a la precisión algorítmica"
+        },
+        "operational_intelligence": {
+            "title_start": "Inteligencia Operativa",
+            "title_end": "Extremo a Extremo",
+            "subtitle": "Un flujo de trabajo completo que transforma datos en resultados.",
+            "cards": {
+                "extraction": {
+                    "title": "Inteligencia de Extracción",
+                    "desc": "Desarrollamos scrapers personalizados que monitorean competidores y extraen leads con precisión quirúrgica."
+                },
+                "qualification": {
+                    "title": "Calificación con LLMs",
+                    "desc": "Modelos Gemini/GPT-4 que analizan la intención de compra y filtran leads por presupuesto y urgencia."
+                },
+                "documentation": {
+                    "title": "Automatización de Documentación",
+                    "desc": "Generación automática de propuestas y contratos vía API, integrados directamente con tu CRM."
+                }
+            }
+        },
+        "terminal": {
+            "badge": "Live Demo",
+            "title_start": "Terminal de",
+            "title_end": "Procesamiento",
+            "subtitle": "Observa cómo nuestros agentes trabajan en tiempo real.",
+            "lines": [
+                "> Initializing Lead Scraper... DONE",
+                "> Analyzing 500+ Leads with LLM Agent... DONE",
+                "> Generating PDF Proposals via API... DONE",
+                "> Efficiency increased by 1000%"
+            ]
+        },
+        "efficiency": {
+            "title_start": "Multiplicador de",
+            "title_end": "Eficiencia",
+            "subtitle": "Resultados medibles que transforman operaciones.",
+            "stats": {
+                "efficiency": {
+                    "label": "Aumento de Eficiencia",
+                    "desc": "Sustituimos 16 horas manuales por procesos de 45 segundos."
+                },
+                "error": {
+                    "label": "Error Humano",
+                    "desc": "Integridad total de datos y consistencia 24/7."
+                },
+                "capacity": {
+                    "label": "Capacidad de Prospección",
+                    "desc": "Escala tu alcance sin contratar personal adicional."
+                },
+                "roi": {
+                    "special": "ROI Inmediato",
+                    "label": "Retorno Garantizado",
+                    "desc": "Sistemas que se pagan solos en menos de 60 días."
+                }
+            }
+        },
+        "flux_engine": {
+            "title_start": "The",
+            "title_end": "Flux Engine",
+            "subtitle": "Nuestra metodología para automatizar tu negocio.",
+            "steps": {
+                "01": {
+                    "title": "Auditoría de Procesos",
+                    "desc": "Mapeamos cada flujo de trabajo para identificar cuellos de botella y oportunidades de automatización."
+                },
+                "02": {
+                    "title": "Arquitectura de Agentes",
+                    "desc": "Diseñamos agentes de IA especializados que trabajan 24/7 sin supervisión."
+                },
+                "03": {
+                    "title": "Integración de Ecosistema",
+                    "desc": "Conectamos APIs, bases de datos y herramientas existentes en un flujo unificado."
+                },
+                "04": {
+                    "title": "Optimización Continua",
+                    "desc": "Monitoreamos, ajustamos y mejoramos tus automatizaciones constantemente."
+                }
+            }
+        },
+        "mipe": {
+            "badge": "Soluciones MiPE",
+            "title_start": "Potencia de Élite para",
+            "title_end": "Pequeños Empresarios",
+            "desc": "Ofrecemos soluciones escalables mediante suscripción, llevando tecnología Fortune 500 al alcance de tu emprendimiento. Sin costos prohibitivos, sin obsolescencia, sin complicaciones."
+        }
+    },
+    "development": {
+        "hero": {
+            "title_start": "Desarrollo",
+            "title_end": "Web y Apps",
+            "subtitle": "Creamos sitios web perfectos y aplicaciones robustas utilizando las últimas tecnologías."
+        },
+        "services": {
+            "web": {
+                "title": "Desarrollo Web",
+                "list": [
+                    "Next.js y React",
+                    "Tailwind CSS y Framer Motion",
+                    "Optimización SEO",
+                    "Integración CMS"
+                ]
+            },
+            "apps": {
+                "title": "Desarrollo de Apps",
+                "list": [
+                    "React Native / Expo",
+                    "Soporte Multiplataforma",
+                    "Rendimiento Nativo",
+                    "Despliegue en App Store"
+                ]
+            }
+        },
+        "bridge": {
+            "text": "La tecnología es el motor. Los datos son la prueba."
+        },
+        "performance": {
+            "title_start": "Ingeniería de",
+            "title_end": "Alto Rendimiento",
+            "subtitle": "Métricas que demuestran nuestra excelencia técnica.",
+            "stats": {
+                "web_vitals": {
+                    "label": "Puntuación en Google Core Web Vitals",
+                    "desc": "Velocidad pura que Google ama."
+                },
+                "load_time": {
+                    "label": "Tiempo de carga promedio",
+                    "desc": "Cero fricción, máxima retención."
+                },
+                "code_quality": {
+                    "label": "Código nativo y escalable",
+                    "desc": "Sin plantillas pesadas ni dependencias obsoletas."
+                },
+                "seo": {
+                    "special": "SEO-First",
+                    "label": "Arquitectura optimizada",
+                    "desc": "Diseñada para que tu negocio sea el primero en ser encontrado."
+                }
+            }
+        },
+        "architecture": {
+            "title_start": "Arquitectura",
+            "title_end": "Superior",
+            "subtitle": "Comparativa vs. Webs Convencionales",
+            "table": {
+                "aspect": "Aspecto",
+                "conventional": "WordPress / Plantillas",
+                "pixel_flux": "Arquitectura Pixel Flux",
+                "rows": {
+                    "tech": {
+                        "aspect": "Tecnología",
+                        "conventional": "WordPress/Plantillas",
+                        "pixel_flux": "Next.js & React (High-End)"
+                    },
+                    "speed": {
+                        "aspect": "Velocidad",
+                        "conventional": "Lenta por plugins",
+                        "pixel_flux": "Carga Instantánea (Serverless)"
+                    },
+                    "security": {
+                        "aspect": "Seguridad",
+                        "conventional": "Vulnerable",
+                        "pixel_flux": "Arquitectura Blindada"
+                    },
+                    "scalability": {
+                        "aspect": "Escalabilidad",
+                        "conventional": "Muy limitada",
+                        "pixel_flux": "Preparada para el futuro"
+                    }
+                }
+            }
+        },
+        "deep_dive": {
+            "title_start": "Desarrollo Web y",
+            "title_end": "Ecosistemas de Apps",
+            "highlight": "Construimos más que interfaces; creamos activos digitales.",
+            "desc": "En Pixel Flux Creative, el desarrollo web no es un proceso aislado. Creamos aplicaciones web progresivas (PWA) que se sienten como apps nativas y aplicaciones móviles robustas que escalan junto con tu visión. Utilizamos el poder de Next.js para garantizar que tu sitio sea una herramienta de marketing imparable."
+        },
+        "flux_blueprint": {
+            "title_start": "The",
+            "title_end": "Flux Blueprint",
+            "subtitle": "Nuestro proceso probado para resultados excepcionales.",
+            "steps": {
+                "01": {
+                    "title": "Auditoría & Estrategia",
+                    "desc": "Entendemos tu modelo de negocio antes de tocar el código."
+                },
+                "02": {
+                    "title": "Prototipado de Alta Fidelidad",
+                    "desc": "Validamos la experiencia de usuario (UX) con diseños interactivos."
+                },
+                "03": {
+                    "title": "Vibe Coding & Desarrollo",
+                    "desc": "Programación ágil asistida por IA para una precisión técnica del 100%."
+                },
+                "04": {
+                    "title": "Despliegue Cloud Start-up",
+                    "desc": "Lanzamiento optimizado en nuestra infraestructura de Hostinger."
+                }
+            }
+        },
+        "mipe_solutions": {
+            "title_start": "Sistemas",
+            "title_end": "Listos para el Mercado",
+            "desc": "Entendemos los desafíos de las micro y pequeñas empresas. Por eso, hemos desarrollado soluciones específicas como nuestros ",
+            "highlight": "Smart Dining Systems",
+            "desc_end": ", permitiendo que negocios gastronómicos accedan a tecnología de punta mediante suscripción."
+        }
+    },
+    "contact": {
+        "title": "ADN Digital:",
+        "subtitle": "El Motor de Tu Negocio",
+        "form": {
+            "name": "Nombre",
+            "email": "Correo",
+            "message": "Mensaje",
+            "submit": "Enviar Mensaje",
+            "sending": "Enviando...",
+            "success": "Mensaje enviado exitosamente.",
+            "error": "Error al enviar el mensaje."
+        }
+    }
+}

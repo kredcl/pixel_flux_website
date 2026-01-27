@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import JsonLd from "@/components/JsonLd";
+import { i18n, Locale } from "@/app/i18n-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo_pxf_n2.png",
+        url: "/assets/images/logo_pxf_n2.png",
         width: 1200,
         height: 630,
         alt: "Pixel Flux Creative Logo",
@@ -45,18 +46,25 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pixel Flux Creative | Orquestación Digital",
     description: "Transformamos procesos manuales en motores de rentabilidad mediante orquestación de IA.",
-    images: ["/logo_pxf_n2.png"],
+    images: ["/assets/images/logo_pxf_n2.png"],
   },
   manifest: "/manifest.webmanifest",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: Locale }>;
 }>) {
+  const { lang } = await params;
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased`}
       >

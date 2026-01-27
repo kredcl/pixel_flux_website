@@ -3,29 +3,32 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Code, Bot, Mail, Home } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
 
-const navItems = [
-    { name: "Inicio", href: "/", icon: Home },
-    { name: "Desarrollo", href: "/development", icon: Code },
-    { name: "Automatización", href: "/automation", icon: Bot },
-    { name: "Contacto", href: "/contact", icon: Mail },
-];
-
-export default function Navbar() {
+export default function Navbar({ dict }: { dict: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const params = useParams();
+    const lang = params.lang as string;
+
+    const navItems = [
+        { name: dict.nav.home, href: `/${lang}`, icon: Home },
+        { name: dict.nav.development, href: `/${lang}/development`, icon: Code },
+        { name: dict.nav.automation, href: `/${lang}/automation`, icon: Bot },
+        { name: dict.nav.contact, href: `/${lang}/contact`, icon: Mail },
+    ];
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 group">
+                    <Link href={`/${lang}`} className="flex items-center gap-2 group">
                         <Image
-                            src="/logo_pxf_n2.png"
+                            src="/assets/images/logo_pxf_n2.png"
                             alt="Pixel Flux Logo"
                             width={32}
                             height={32}
@@ -42,7 +45,7 @@ export default function Navbar() {
                             const isActive = pathname === item.href;
                             return (
                                 <Link
-                                    key={item.name}
+                                    key={item.href}
                                     href={item.href}
                                     className={`relative text-sm font-medium transition-colors hover:text-spring-green ${isActive ? "text-spring-green" : "text-gray-300"
                                         }`}
@@ -57,10 +60,12 @@ export default function Navbar() {
                                 </Link>
                             );
                         })}
+                        <LanguageSelector />
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden">
+                    {/* Mobile Menu Button - Includes Lang Selector in Mobile Header or Menu? Usually Menu */}
+                    <div className="md:hidden flex items-center gap-4">
+                        <LanguageSelector />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-white hover:text-spring-green transition-colors"
@@ -85,7 +90,7 @@ export default function Navbar() {
                                 const isActive = pathname === item.href;
                                 return (
                                     <Link
-                                        key={item.name}
+                                        key={item.href}
                                         href={item.href}
                                         onClick={() => setIsOpen(false)}
                                         className={`flex items-center gap-4 px-4 py-3 rounded-lg border border-transparent transition-all ${isActive
