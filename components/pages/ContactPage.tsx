@@ -32,15 +32,26 @@ export default function ContactPage({ dict }: { dict: any }) {
                 body: JSON.stringify(data),
             });
 
+            const result = await response.json();
+
             if (response.ok) {
                 setStatus("success");
             } else {
-                throw new Error("Failed to send message");
+                console.error("Server Error Details:", result);
+                // Alert the specific error for debugging
+                const errorMessage = result.error || result.debug || "Failed to send message";
+                const debugInfo = result.debugInfo ? `\nDebug: ${JSON.stringify(result.debugInfo)}` : "";
+                alert(`Error: ${errorMessage}${debugInfo}`);
+                throw new Error(errorMessage);
             }
         } catch (error) {
             console.error(error);
             setStatus("idle");
-            alert(dict.contact.form.error || "Error al enviar el mensaje.");
+            // If it's the error we threw above, the alert already happened. 
+            // If it's a network error (fetch failed completely), alert that.
+            if (error instanceof Error && error.message !== "Failed to send message" && !error.message.startsWith("Error:")) {
+                alert(dict.contact.form.error || "Error al enviar el mensaje.");
+            }
         }
     };
 

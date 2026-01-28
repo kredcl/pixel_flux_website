@@ -6,33 +6,34 @@ import path from 'path';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Keep logToFile for fallback, but main strategy is response body
 function logToFile(message: string) {
-    const logPath = path.join(process.cwd(), 'debug-contact.log');
-    const timestamp = new Date().toISOString();
-    const logMessage = `[${timestamp}] ${message}\n`;
-
-    try {
-        fs.appendFileSync(logPath, logMessage);
-        console.log(message); // Keep console log just in case
-    } catch (err) {
-        console.error('Failed to write to log file:', err);
-    }
+    // ... existing ...
 }
 
 export async function POST(request: Request) {
-    // Debug logging
-    const apiKey = process.env.RESEND_API_KEY;
-    logToFile(`API Key check: ${apiKey ? `Present (starts with ${apiKey.substring(0, 4)}...)` : 'Missing or empty'}`);
+    // Debug info builder
+    const diagnostics = {
+        hasKey: !!process.env.RESEND_API_KEY,
+        keyLength: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.length : 0,
+        keyPrefix: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.substring(0, 4) : 'NONE',
+        cwd: process.cwd(),
+        timestamp: new Date().toISOString()
+    };
+
+    // Log to file as well, just in case
+    logToFile(`[Request] KeyPrefix: ${diagnostics.keyPrefix}`);
 
     try {
         const body = await request.json();
         const { name, email, message } = body;
 
-        logToFile(`Attempting to send email from: ${email}`);
-
         if (!process.env.RESEND_API_KEY) {
             logToFile('RESEND_API_KEY is not defined');
-            return NextResponse.json({ error: 'Server misconfiguration: Missing API Key' }, { status: 500 });
+            return NextResponse.json({
+                error: 'Server misconfiguration: Missing API Key',
+                debugInfo: diagnostics
+            }, { status: 500 });
         }
 
         const data = await resend.emails.send({
@@ -45,13 +46,20 @@ export async function POST(request: Request) {
 
         if (data.error) {
             logToFile(`Resend API returned error: ${JSON.stringify(data.error)}`);
-            return NextResponse.json(data);
+            return NextResponse.json({
+                error: data.error,
+                debugInfo: diagnostics
+            }, { status: 500 });
         }
 
         logToFile('Email sent successfully via Resend API');
         return NextResponse.json(data);
     } catch (error) {
-        logToFile(`Error processing contact form: ${JSON.stringify(error)}`);
-        return NextResponse.json({ error }, { status: 500 });
+        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+        logToFile(`Error processing contact form: ${errorMsg}`);
+        return NextResponse.json({
+            error: errorMsg,
+            debugInfo: diagnostics
+        }, { status: 500 });
     }
 }
