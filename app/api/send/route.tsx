@@ -1,20 +1,37 @@
 import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+function logToFile(message: string) {
+    const logPath = path.join(process.cwd(), 'debug-contact.log');
+    const timestamp = new Date().toISOString();
+    const logMessage = `[${timestamp}] ${message}\n`;
+
+    try {
+        fs.appendFileSync(logPath, logMessage);
+        console.log(message); // Keep console log just in case
+    } catch (err) {
+        console.error('Failed to write to log file:', err);
+    }
+}
 
 export async function POST(request: Request) {
     // Debug logging
     const apiKey = process.env.RESEND_API_KEY;
-    console.log('API Key check:', apiKey ? `Present (starts with ${apiKey.substring(0, 4)}...)` : 'Missing or empty');
+    logToFile(`API Key check: ${apiKey ? `Present (starts with ${apiKey.substring(0, 4)}...)` : 'Missing or empty'}`);
 
     try {
         const body = await request.json();
         const { name, email, message } = body;
 
+        logToFile(`Attempting to send email from: ${email}`);
+
         if (!process.env.RESEND_API_KEY) {
-            console.error('RESEND_API_KEY is not defined');
+            logToFile('RESEND_API_KEY is not defined');
             return NextResponse.json({ error: 'Server misconfiguration: Missing API Key' }, { status: 500 });
         }
 
@@ -27,13 +44,14 @@ export async function POST(request: Request) {
         });
 
         if (data.error) {
-            console.error('Resend API returned error:', data.error);
-            return NextResponse.json(data); // Resend might return { error: ... } even on "success" call structure sometimes, best to pass it through if it has an error object.
+            logToFile(`Resend API returned error: ${JSON.stringify(data.error)}`);
+            return NextResponse.json(data);
         }
 
+        logToFile('Email sent successfully via Resend API');
         return NextResponse.json(data);
     } catch (error) {
-        console.error('Error processing contact form:', error);
+        logToFile(`Error processing contact form: ${JSON.stringify(error)}`);
         return NextResponse.json({ error }, { status: 500 });
     }
 }
