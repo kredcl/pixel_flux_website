@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs'; // FORCE Node.js runtime to convert 500s into actual errors
 
 export async function POST(request: Request) {
-    console.log('API Route started v10'); // Attempt to log to server console
+    console.log('API Route started v11-no-middleware'); // Attempt to log to server console
     const diagnostics = {
         hasKey: false,
         keyPrefix: 'N/A',
-        mode: 'v10-no-imports-runtime'
+        mode: 'v11-no-runtime'
     };
 
 
