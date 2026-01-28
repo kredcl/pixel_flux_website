@@ -3,6 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Disable ETags to encourage fresh fetching
   generateEtags: false,
+
+  // Force a unique build ID to invalidate caches
+  generateBuildId: async () => {
+    return 'v16-build-' + Date.now();
+  },
+
   async headers() {
     return [
       {
@@ -16,17 +22,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Aggressive Cache Busting for the main document to fix partial loading issues
-        // We exclude _next to allow static assets to be cached (they have hashes)
+        // Aggressive Cache Busting for the main document
         source: '/((?!_next|favicon.ico).*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-store, no-cache, must-revalidate, proxy-revalidate',
-          },
-          {
-            key: 'Surrogate-Control',
-            value: 'no-store',
+            value: 'no-store, max-age=0, must-revalidate',
           },
         ],
       },
