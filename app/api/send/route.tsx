@@ -1,37 +1,22 @@
-import { EmailTemplate } from '@/components/email-template';
-import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic'; // Ensure it's treated as a dynamic lambda
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: Request) {
     const diagnostics = {
         hasKey: false,
         keyPrefix: 'N/A',
-        configError: null as string | null,
+        mode: 'fetch-v8-hard-overwrite'
     };
 
     try {
-        // Safe check for API Key
         const apiKey = process.env.RESEND_API_KEY;
         diagnostics.hasKey = !!apiKey;
         diagnostics.keyPrefix = apiKey ? apiKey.substring(0, 4) + '...' : 'MISSING';
 
         if (!apiKey) {
             return NextResponse.json({
-                error: 'Configuration Error: RESEND_API_KEY is missing via process.env',
-                debugInfo: diagnostics
-            }, { status: 500 });
-        }
-
-        // Initialize Resend INSIDE the try/catch to catch any generic initialization errors
-        let resend;
-        try {
-            resend = new Resend(apiKey);
-        } catch (initError) {
-            return NextResponse.json({
-                error: 'Failed to initialize Resend client',
-                details: initError instanceof Error ? initError.message : String(initError),
+                error: 'Configuration Error: RESEND_API_KEY is missing',
                 debugInfo: diagnostics
             }, { status: 500 });
         }
@@ -39,22 +24,52 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { name, email, message } = body;
 
-        const data = await resend.emails.send({
-            from: 'Pixel Flux Website <noreply@pixelfluxcreative.com>',
-            to: ['info@pixelfluxcreative.com'],
-            subject: `Nuevo contacto de: ${name}`,
-            react: <EmailTemplate firstName={name} email={email} message={message} />,
-            replyTo: email,
+        // Construct simple HTML email content
+        const htmlContent = `
+            <div style="font-family: sans-serif; padding: 20px;">
+                <h1>Nuevo contacto de: ${name}</h1>
+                <p><strong>Email:</strong> ${email}</p>
+                <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px;">
+                    <p><strong>Mensaje:</strong></p>
+                    <p>${message}</p>
+                </div>
+            </div>
+        `;
+
+        const res = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                from: 'Pixel Flux Website <noreply@pixelfluxcreative.com>',
+                to: ['info@pixelfluxcreative.com'],
+                subject: `Nuevo contacto de: ${name}`,
+                html: htmlContent,
+                reply_to: email,
+            })
         });
 
-        if (data.error) {
+        if (!res.ok) {
+            const errorText = await res.text();
+            let errorData;
+            try {
+                errorData = JSON.parse(errorText);
+            } catch (e) {
+                errorData = errorText;
+            }
+
             return NextResponse.json({
-                error: data.error,
+                error: 'Resend API Error',
+                details: errorData,
                 debugInfo: diagnostics
-            }, { status: 500 });
+            }, { status: res.status });
         }
 
+        const data = await res.json();
         return NextResponse.json(data);
+
     } catch (error) {
         return NextResponse.json({
             error: error instanceof Error ? error.message : 'Unknown unexpected error',
