@@ -7,6 +7,8 @@ export async function GET() {
         message: 'pong',
         time: Date.now(),
         env: process.env.NODE_ENV,
-        keyCheck: !!process.env.RESEND_API_KEY
+        // Security: Only showing KEYS, not values
+        availableEnvKeys: Object.keys(process.env).filter(key => !key.includes('KEY') && !key.includes('SECRET')),
+        hasResendKey: !!process.env.RESEND_API_KEY
     });
 }
