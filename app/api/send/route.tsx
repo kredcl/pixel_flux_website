@@ -1,13 +1,16 @@
 import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs'; // FORCE Node.js runtime to convert 500s into actual errors
 
 export async function POST(request: Request) {
+    console.log('API Route started'); // Attempt to log to server console
     const diagnostics = {
         hasKey: false,
         keyPrefix: 'N/A',
-        mode: 'fetch-v8-hard-overwrite'
+        mode: 'v9-node-runtime'
     };
+
 
     try {
         const apiKey = process.env.RESEND_API_KEY;
