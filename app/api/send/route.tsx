@@ -1,40 +1,43 @@
 import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Keep logToFile for fallback, but main strategy is response body
-function logToFile(message: string) {
-    // ... existing ...
-}
+export const dynamic = 'force-dynamic'; // Ensure it's treated as a dynamic lambda
 
 export async function POST(request: Request) {
-    // Debug info builder
     const diagnostics = {
-        hasKey: !!process.env.RESEND_API_KEY,
-        keyLength: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.length : 0,
-        keyPrefix: process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.substring(0, 4) : 'NONE',
-        cwd: process.cwd(),
-        timestamp: new Date().toISOString()
+        hasKey: false,
+        keyPrefix: 'N/A',
+        configError: null as string | null,
     };
 
-    // Log to file as well, just in case
-    logToFile(`[Request] KeyPrefix: ${diagnostics.keyPrefix}`);
-
     try {
-        const body = await request.json();
-        const { name, email, message } = body;
+        // Safe check for API Key
+        const apiKey = process.env.RESEND_API_KEY;
+        diagnostics.hasKey = !!apiKey;
+        diagnostics.keyPrefix = apiKey ? apiKey.substring(0, 4) + '...' : 'MISSING';
 
-        if (!process.env.RESEND_API_KEY) {
-            logToFile('RESEND_API_KEY is not defined');
+        if (!apiKey) {
             return NextResponse.json({
-                error: 'Server misconfiguration: Missing API Key',
+                error: 'Configuration Error: RESEND_API_KEY is missing via process.env',
                 debugInfo: diagnostics
             }, { status: 500 });
         }
+
+        // Initialize Resend INSIDE the try/catch to catch any generic initialization errors
+        let resend;
+        try {
+            resend = new Resend(apiKey);
+        } catch (initError) {
+            return NextResponse.json({
+                error: 'Failed to initialize Resend client',
+                details: initError instanceof Error ? initError.message : String(initError),
+                debugInfo: diagnostics
+            }, { status: 500 });
+        }
+
+        const body = await request.json();
+        const { name, email, message } = body;
 
         const data = await resend.emails.send({
             from: 'Pixel Flux Website <noreply@pixelfluxcreative.com>',
@@ -45,20 +48,16 @@ export async function POST(request: Request) {
         });
 
         if (data.error) {
-            logToFile(`Resend API returned error: ${JSON.stringify(data.error)}`);
             return NextResponse.json({
                 error: data.error,
                 debugInfo: diagnostics
             }, { status: 500 });
         }
 
-        logToFile('Email sent successfully via Resend API');
         return NextResponse.json(data);
     } catch (error) {
-        const errorMsg = error instanceof Error ? error.message : 'Unknown error';
-        logToFile(`Error processing contact form: ${errorMsg}`);
         return NextResponse.json({
-            error: errorMsg,
+            error: error instanceof Error ? error.message : 'Unknown unexpected error',
             debugInfo: diagnostics
         }, { status: 500 });
     }
